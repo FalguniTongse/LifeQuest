@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { GameProvider } from './context/GameContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <AuthProvider>
       <GameProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
@@ -29,7 +29,7 @@ export default function App() {
             <Route path="/inventory" element={<ProtectedRoute><Inventory /></ProtectedRoute>} />
             <Route path="/achievements" element={<ProtectedRoute><Achievements /></ProtectedRoute>} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </GameProvider>
     </AuthProvider>
   );
