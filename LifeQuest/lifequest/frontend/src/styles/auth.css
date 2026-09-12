@@ -1,0 +1,52 @@
+/* File: lifequest/frontend/src/styles/auth.css */
+
+/* Login / Register — "Frostbourne" palette */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.auth-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 680px 460px at 50% 0%, rgba(111, 168, 217, 0.16), transparent 64%);
+  pointer-events: none;
+}
+.auth-box { width: min(420px, 100%); position: relative; animation: slide-up 460ms var(--ease-out); }
+.auth-brand { text-align: center; margin-bottom: 28px; }
+.auth-brand .mark { font-family: var(--font-display); font-size: 1.55rem; color: var(--parchment); }
+.auth-brand .mark span { color: var(--frost-bright); text-shadow: 0 0 18px rgba(156, 208, 242, 0.4); }
+.auth-panel {
+  background: linear-gradient(155deg, var(--surface-glass-strong), var(--surface-glass));
+  backdrop-filter: blur(22px) saturate(130%);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: clamp(26px, 5vw, 38px);
+  box-shadow: var(--shadow-lift), inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  position: relative;
+  overflow: hidden;
+}
+.auth-panel::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(111, 168, 217, 0.55), transparent);
+}
+.auth-panel h2 { font-size: 1.35rem; margin-bottom: 6px; }
+.auth-panel .sub { color: var(--parchment-dim); font-size: 0.88rem; margin-bottom: 26px; }
+.auth-switch { text-align: center; margin-top: 22px; font-size: 0.88rem; color: var(--parchment-dim); }
+.auth-switch a { color: var(--frost-bright); font-weight: 600; }
+.auth-switch a:hover { text-decoration: underline; }
+.auth-switch a { transition: color 160ms var(--ease-out), text-shadow 160ms var(--ease-out); }
+.auth-switch a:hover { color: var(--parchment); text-shadow: 0 0 18px rgba(156, 208, 242, 0.4); }
+
+@media (max-width: 480px) {
+  .auth-page { padding: 20px; }
+  .auth-brand { margin-bottom: 22px; }
+}

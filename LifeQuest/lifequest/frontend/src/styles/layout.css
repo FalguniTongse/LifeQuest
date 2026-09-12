@@ -1,0 +1,146 @@
+/* File: lifequest/frontend/src/styles/layout.css */
+
+/* ============================================================
+   App shell — a journal spine (sidebar) beside a frost-lit page
+   ============================================================ */
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--surface-glass-strong), color-mix(in oklab, var(--ink-900) 94%, transparent) 140%);
+  backdrop-filter: blur(18px) saturate(125%);
+  border-right: 1px solid var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  padding: 26px 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 140;
+}
+
+.sidebar-brand {
+  padding: 0 24px 22px;
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 18px;
+}
+.sidebar-brand .mark {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--parchment);
+}
+.sidebar-brand .mark span {
+  color: var(--frost-bright);
+  text-shadow: 0 0 18px rgba(156, 208, 242, 0.4);
+}
+.sidebar-brand .sub {
+  font-size: 0.72rem;
+  color: var(--parchment-dim);
+  margin-top: 3px;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-nav { display: flex; flex-direction: column; gap: 3px; padding: 0 12px; flex: 1; }
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--slate);
+  font-size: 0.92rem;
+  border-left: 2px solid transparent;
+  transition: color 160ms var(--ease-out), background-color 160ms var(--ease-out), border-color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.sidebar-link:hover { color: var(--parchment); background: rgba(255, 255, 255, 0.03); transform: translateX(2px); }
+.sidebar-link:active { transform: translateX(2px) scale(0.985); }
+.sidebar-link.active {
+  color: var(--frost-bright);
+  background: linear-gradient(90deg, rgba(111, 168, 217, 0.14), rgba(111, 168, 217, 0.02));
+  border-left-color: var(--frost);
+  box-shadow: inset 0 0 24px -18px rgba(111, 168, 217, 0.85);
+}
+.sidebar-icon { width: 18px; text-align: center; flex-shrink: 0; opacity: 0.9; }
+
+.sidebar-footer { padding: 12px 24px 0; border-top: 1px solid var(--line-soft); margin-top: 10px; }
+.sidebar-user { font-size: 0.85rem; color: var(--parchment-dim); margin-bottom: 10px; padding-top: 12px; }
+.sidebar-user strong { color: var(--parchment); display: block; font-family: var(--font-display); font-size: 1rem; }
+
+.main-column { flex: 1; min-width: 0; }
+
+.page {
+  padding: clamp(28px, 4vw, 46px) clamp(22px, 5vw, 56px) 72px;
+  max-width: 1180px;
+  animation: page-enter 420ms var(--ease-out);
+}
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.page-head h1 {
+  font-size: 1.8rem;
+  background: linear-gradient(180deg, var(--parchment), var(--parchment-dim) 180%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.page-head .lede { color: var(--parchment-dim); font-size: 0.92rem; margin-top: 5px; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+
+.stack { display: flex; flex-direction: column; gap: 20px; }
+
+/* Mobile nav toggle */
+.mobile-nav-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 150;
+  background: var(--ink-700);
+  border: 1px solid var(--line);
+  color: var(--parchment);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 1rem;
+  box-shadow: var(--shadow-lift);
+}
+
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 240ms var(--ease-out);
+    box-shadow: 24px 0 48px rgba(0, 0, 0, 0.45);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .mobile-nav-toggle { display: inline-flex; }
+  .page { padding: 74px 18px 50px; }
+  .page-head { align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .grid-4 { grid-template-columns: 1fr; }
+  .page { padding-inline: 16px; }
+  .page-head h1 { font-size: 1.55rem; }
+}
