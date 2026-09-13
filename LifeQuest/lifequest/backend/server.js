@@ -1,3 +1,5 @@
+/* File: LifeQuest/lifequest/backend/server.js */
+
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -14,6 +16,12 @@ const inventoryRoutes = require('./routes/inventory.routes');
 const achievementRoutes = require('./routes/achievement.routes');
 
 const app = express();
+
+// Render (and similar platforms) sit behind a reverse proxy that adds an
+// X-Forwarded-For header. Express must be told to trust it, otherwise
+// express-rate-limit's IP validation throws on every rate-limited request
+// (this is what was causing register/login to 500 only when deployed).
+app.set('trust proxy', 1);
 
 app.use(helmet());
 const allowedOrigins = [
