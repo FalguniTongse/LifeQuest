@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useState } from 'react';
 import api from '../services/api';
 import { useAuth } from './AuthContext';
+import { playThwip, playAchievement, playLevelUp, playToastPop } from '../utils/sounds';
 
 const GameContext = createContext(null);
 
@@ -23,6 +24,7 @@ export function GameProvider({ children }) {
   const pushToast = useCallback((title, body) => {
     const id = Date.now() + Math.random();
     setToasts((prev) => [...prev, { id, title, body }]);
+    playToastPop();
     setTimeout(() => {
       setToasts((prev) => prev.filter((t) => t.id !== id));
     }, 4200);
@@ -56,13 +58,16 @@ export function GameProvider({ children }) {
         'Quest complete',
         `+${result.rewards.xp} XP  ·  +${result.rewards.gold} Gold  ·  +${result.rewards.attribute.amount} ${result.rewards.attribute.name}`
       );
+      playThwip();
 
       result.achievementsUnlocked.forEach((a) => {
         pushToast('Achievement unlocked', a.name);
+        playAchievement();
       });
 
       if (result.levelUp) {
         setLevelUpEvent({ level: result.character.level });
+        playLevelUp();
       }
     },
     [pushToast]

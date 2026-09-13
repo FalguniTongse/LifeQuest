@@ -7,6 +7,7 @@ import AppLayout from '../components/AppLayout';
 import StatCard from '../components/StatCard';
 import XPBar from '../components/XPBar';
 import QuestCard from '../components/QuestCard';
+import HeroGreeting from '../components/HeroGreeting';
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -51,6 +52,8 @@ export default function Dashboard() {
       </div>
 
       {error && <div className="form-error-banner">{error}</div>}
+
+      {!loading && <HeroGreeting username={user?.username} />}
 
       {loading ? (
         <DashboardSkeleton />

@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useGame } from '../context/GameContext';
 import AppLayout from '../components/AppLayout';
 import XPBar from '../components/XPBar';
+import AvatarPicker from '../components/AvatarPicker';
+import { getSelectedAvatarId, setSelectedAvatarId, getAvatarById } from '../utils/avatars';
 
 const ATTRIBUTES = [
   { key: 'intellect', label: 'Intellect', color: 'var(--cat-coding)' },
@@ -15,6 +17,12 @@ const ATTRIBUTES = [
 export default function Character() {
   const { user } = useAuth();
   const { character, refreshCharacter } = useGame();
+  const [avatarId, setAvatarId] = useState(getSelectedAvatarId());
+
+  const handleAvatarSelect = (id) => {
+    setSelectedAvatarId(id);
+    setAvatarId(id);
+  };
 
   useEffect(() => {
     if (!character) refreshCharacter();
@@ -44,6 +52,17 @@ export default function Character() {
               <span style={{ color: 'var(--gold-bright)' }}>Level {character.level}</span>
             </div>
             <div className="panel-body">
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 22 }}>
+                <img
+                  src={getAvatarById(avatarId).src}
+                  alt={getAvatarById(avatarId).name}
+                  style={{ width: 64, height: 64, borderRadius: '50%', border: '2px solid var(--frost-bright)', boxShadow: 'var(--glow-frost)' }}
+                />
+                <div>
+                  <div style={{ color: 'var(--parchment)', fontWeight: 600 }}>{getAvatarById(avatarId).name}</div>
+                  <div style={{ color: 'var(--parchment-dim)', fontSize: '0.85rem' }}>Current mask</div>
+                </div>
+              </div>
               <XPBar
                 xpIntoLevel={character.xpIntoLevel}
                 xpForNextLevel={character.xpForNextLevel}
@@ -81,6 +100,15 @@ export default function Character() {
                 );
               })}
             </div>
+          </div>
+        </div>
+      )}
+
+      {character && (
+        <div className="panel" style={{ marginTop: 24 }}>
+          <div className="panel-header"><h3>Choose your mask</h3></div>
+          <div className="panel-body">
+            <AvatarPicker selectedId={avatarId} onSelect={handleAvatarSelect} />
           </div>
         </div>
       )}

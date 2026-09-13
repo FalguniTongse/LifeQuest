@@ -27,13 +27,13 @@
 
 .btn-primary {
   background: linear-gradient(180deg, var(--frost-bright), var(--frost));
-  color: #0a1420;
+  color: #050b1f;
   border-color: var(--frost);
-  box-shadow: 0 6px 18px -6px rgba(111, 168, 217, 0.6);
+  box-shadow: 0 6px 18px -6px rgba(220, 31, 31, 0.6);
 }
 .btn-primary:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 10px 26px -6px rgba(111, 168, 217, 0.75);
+  box-shadow: 0 10px 26px -6px rgba(220, 31, 31, 0.75);
 }
 
 .btn-outline {
@@ -43,14 +43,14 @@
 .btn-outline:hover:not(:disabled) {
   border-color: var(--frost);
   color: var(--frost-bright);
-  background: rgba(111, 168, 217, 0.07);
+  background: rgba(220, 31, 31, 0.07);
 }
 
 .btn-danger {
   border-color: var(--ember);
   color: var(--ember-bright);
 }
-.btn-danger:hover:not(:disabled) { background: rgba(181, 86, 126, 0.14); }
+.btn-danger:hover:not(:disabled) { background: rgba(176, 20, 31, 0.14); }
 
 .btn-block { width: 100%; }
 .btn-sm { padding: 7px 14px; font-size: 0.85rem; }
@@ -70,7 +70,7 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(111, 168, 217, 0.55), transparent);
+  background: linear-gradient(90deg, transparent, rgba(220, 31, 31, 0.55), transparent);
 }
 
 .panel-header {
@@ -136,7 +136,7 @@
   height: 100%;
   background: linear-gradient(90deg, var(--frost), var(--frost-bright));
   border-radius: 999px;
-  box-shadow: 0 0 12px rgba(156, 208, 242, 0.6);
+  box-shadow: 0 0 12px rgba(255, 77, 67, 0.6);
   transition: width 700ms var(--ease-out);
   position: relative;
   overflow: hidden;
@@ -224,9 +224,9 @@
   font-weight: 600;
 }
 .difficulty-Easy { border-color: var(--emerald); color: var(--emerald-bright); background: rgba(79, 169, 163, 0.1); }
-.difficulty-Medium { border-color: var(--frost); color: var(--frost-bright); background: rgba(111, 168, 217, 0.1); }
-.difficulty-Hard { border-color: var(--ember); color: var(--ember-bright); background: rgba(181, 86, 126, 0.1); }
-.difficulty-Epic { border-color: var(--cat-art); color: var(--cat-art); background: rgba(167, 155, 217, 0.1); }
+.difficulty-Medium { border-color: var(--frost); color: var(--frost-bright); background: rgba(220, 31, 31, 0.1); }
+.difficulty-Hard { border-color: var(--ember); color: var(--ember-bright); background: rgba(176, 20, 31, 0.1); }
+.difficulty-Epic { border-color: var(--cat-art); color: var(--cat-art); background: rgba(161, 91, 224, 0.1); }
 
 /* --- Forms --- */
 .field { margin-bottom: 16px; }
@@ -253,7 +253,7 @@
 .field select:focus,
 .field textarea:focus {
   border-color: var(--frost);
-  box-shadow: 0 0 0 3px rgba(111, 168, 217, 0.18);
+  box-shadow: 0 0 0 3px rgba(220, 31, 31, 0.18);
   background: var(--ink-700);
   outline: none;
 }
@@ -267,7 +267,7 @@
 .field-row .field { flex: 1; }
 
 .form-error-banner {
-  background: rgba(181, 86, 126, 0.12);
+  background: rgba(176, 20, 31, 0.12);
   border: 1px solid var(--ember);
   color: var(--ember-bright);
   padding: 12px 14px;
@@ -365,8 +365,8 @@
 .achievement-row.unlocked .achievement-seal {
   border-color: var(--gold);
   color: var(--gold-bright);
-  background: rgba(194, 166, 98, 0.12);
-  box-shadow: 0 0 16px rgba(194, 166, 98, 0.5);
+  background: rgba(224, 32, 28, 0.12);
+  box-shadow: 0 0 16px rgba(224, 32, 28, 0.5);
 }
 .achievement-name { color: var(--parchment); font-family: var(--font-display); }
 .achievement-desc { font-size: 0.85rem; color: var(--slate); margin-top: 2px; }
@@ -398,7 +398,7 @@
   padding: 12px 16px;
   min-width: 250px;
   animation: toast-in 260ms var(--ease-out);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px -6px rgba(111, 168, 217, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px -6px rgba(220, 31, 31, 0.4);
 }
 .toast .toast-title { color: var(--gold-bright); font-weight: 700; font-size: 0.9rem; }
 .toast .toast-body { color: var(--slate-bright); font-size: 0.85rem; margin-top: 3px; }
@@ -429,7 +429,7 @@
   padding: 44px 34px;
   text-align: center;
   animation: chapter-turn 520ms var(--ease-out);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55), 0 0 60px -12px rgba(111, 168, 217, 0.45);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55), 0 0 60px -12px rgba(220, 31, 31, 0.45);
   position: relative;
   overflow: hidden;
 }
@@ -441,7 +441,7 @@
   width: 220%;
   aspect-ratio: 1;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(111, 168, 217, 0.2), transparent 60%);
+  background: radial-gradient(circle, rgba(220, 31, 31, 0.2), transparent 60%);
   pointer-events: none;
 }
 @keyframes chapter-turn {
@@ -459,7 +459,7 @@
   line-height: 1;
   margin: 8px 0 12px;
   position: relative;
-  text-shadow: 0 0 40px rgba(156, 208, 242, 0.35);
+  text-shadow: 0 0 40px rgba(255, 77, 67, 0.35);
 }
 .levelup-sub { color: var(--slate-bright); font-size: 0.95rem; margin-bottom: 26px; position: relative; }
 
@@ -549,8 +549,42 @@
 .avatar-option.active::after,
 .avatar-option[aria-checked="true"]::after { content: "✓"; position: absolute; right: 1px; bottom: 1px; display: grid; width: 20px; aspect-ratio: 1; place-items: center; border-radius: 50%; background: var(--frost-bright); color: var(--ink-900); font-size: 0.72rem; font-weight: 800; }
 
+/* --- Hero welcome greeting banner (avatar + speech bubble) --- */
+.hero-greeting {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--surface-glass-strong), var(--surface-glass));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glow-frost);
+  animation: slide-up 320ms var(--ease-out);
+}
+.hero-greeting-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--frost-bright);
+  flex-shrink: 0;
+}
+.hero-greeting-bubble {
+  position: relative;
+  flex: 1;
+}
+.hero-greeting-bubble p {
+  color: var(--parchment);
+  font-size: 0.95rem;
+}
+.hero-greeting-bubble strong { color: var(--frost-bright); }
+.hero-greeting-actions { display: flex; gap: 10px; margin-top: 10px; }
+@media (max-width: 640px) {
+  .hero-greeting { flex-direction: column; align-items: flex-start; }
+}
+
 /* --- Optional UI audio control --- */
-.audio-control { display: inline-flex; align-items: center; gap: 10px; color: var(--slate-bright); font-size: 0.85rem; }
+.audio-control { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--slate-bright); font-size: 0.85rem; margin-bottom: 12px; }
 .audio-toggle {
   width: 46px;
   height: 26px;

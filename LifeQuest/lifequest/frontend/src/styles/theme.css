@@ -1,87 +1,93 @@
 /* File: lifequest/frontend/src/styles/theme.css */
 
 /* ============================================================
-   LifeQuest design tokens — "Frostbourne" palette
-   Concept: a frozen keep's ledger — steel-blue ice, polished
-   silver and pale gold coin-light against a deep frozen night.
+   LifeQuest design tokens — "Crimson Web" palette
+   Concept: black-and-red hero suit — near-black city night,
+   hero red as the dominant accent everywhere, with white
+   webbing lines and a small amount of gold reserved for gold/
+   currency so it stays readable against the red.
    ============================================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  /* Ink surfaces (backgrounds, deepest to lightest) — frozen night */
-  --ink-900: #070b13;
-  --ink-800: #0f1522;
-  --ink-700: #17202f;
-  --ink-600: #212b3d;
+  /* Ink surfaces (backgrounds, deepest to lightest) — near-black night */
+  --ink-900: #040404;
+  --ink-800: #0b0b0c;
+  --ink-700: #141416;
+  --ink-600: #1e1e21;
 
   /* Hairline rules & dividers */
-  --line: #33415c;
-  --line-soft: #202a3c;
+  --line: #3d2323;
+  --line-soft: #221515;
 
-  /* Frost text (foreground on ink) */
-  --parchment: #e7edf5;
-  --parchment-dim: #8fa0b8;
+  /* Web text (foreground on ink) */
+  --parchment: #f7f4f4;
+  --parchment-dim: #a89b9b;
 
-  /* Primary interactive accent — steel / ice blue (buttons, glows, focus) */
-  --frost: #6fa8d9;
-  --frost-bright: #9cd0f2;
+  /* Primary interactive accent — hero red (buttons, glows, focus) */
+  --frost: #dc1f1f;
+  --frost-bright: #ff4d43;
 
-  /* True currency gold — reserved for Gold, Legendary rarity, achievements */
-  --gold: #c2a662;
-  --gold-bright: #e2cd93;
+  /* Gold — reserved for Gold/currency, legendary rarity, achievements */
+  --gold: #f0ac1f;
+  --gold-bright: #ffce54;
 
-  /* Secondary cold accent — glacial rose (danger / streak) */
-  --ember: #b5567e;
-  --ember-bright: #dd82a8;
+  /* Secondary accent — deep blood crimson (danger / streak) */
+  --ember: #7a0d0d;
+  --ember-bright: #c22626;
 
-  /* Success / positive — icy teal */
-  --emerald: #4fa9a3;
-  --emerald-bright: #78d6cd;
+  /* Success / positive — kept green so it still reads as "good" */
+  --emerald: #2e8b57;
+  --emerald-bright: #5fd68c;
 
   /* Body text on ink surfaces */
-  --slate: #8b9ab3;
-  --slate-bright: #c4cee0;
+  --slate: #9a8c8c;
+  --slate-bright: #d9cfcf;
 
   /* Category accent colors */
-  --cat-coding: #6fa8d9;
-  --cat-study: #6fa8d9;
-  --cat-reading: #6fa8d9;
-  --cat-fitness: #c98a58;
-  --cat-meditation: #4fa9a3;
-  --cat-art: #a79bd9;
-  --cat-social: #e2cd93;
+  --cat-coding: #dc1f1f;
+  --cat-study: #ff4d43;
+  --cat-reading: #9a8c8c;
+  --cat-fitness: #c22626;
+  --cat-meditation: #2e8b57;
+  --cat-art: #f0ac1f;
+  --cat-social: #ff8a3d;
 
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Bangers', 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
 
-  --shadow-panel: 0 1px 0 rgba(0, 0, 0, 0.4), 0 12px 32px -18px rgba(0, 0, 0, 0.6);
-  --shadow-lift: 0 18px 40px -16px rgba(0, 0, 0, 0.55);
-  --glow-frost: 0 0 0 1px rgba(111, 168, 217, 0.35), 0 8px 28px -8px rgba(111, 168, 217, 0.4);
-  --glow-gold: 0 0 0 1px rgba(194, 166, 98, 0.35), 0 8px 28px -8px rgba(194, 166, 98, 0.35);
+  --shadow-panel: 0 1px 0 rgba(0, 0, 0, 0.5), 0 12px 32px -18px rgba(0, 0, 0, 0.75);
+  --shadow-lift: 0 18px 40px -16px rgba(0, 0, 0, 0.7);
+  --glow-frost: 0 0 0 1px rgba(220, 31, 31, 0.45), 0 8px 28px -8px rgba(220, 31, 31, 0.5);
+  --glow-gold: 0 0 0 1px rgba(240, 172, 31, 0.4), 0 8px 28px -8px rgba(240, 172, 31, 0.4);
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --surface-glass: color-mix(in oklab, var(--ink-800) 82%, transparent);
   --surface-glass-strong: color-mix(in oklab, var(--ink-700) 90%, transparent);
-  --focus-ring: 0 0 0 3px color-mix(in oklab, var(--frost) 28%, transparent), 0 0 24px color-mix(in oklab, var(--frost) 22%, transparent);
+  --focus-ring: 0 0 0 3px color-mix(in oklab, var(--frost) 32%, transparent), 0 0 24px color-mix(in oklab, var(--frost) 26%, transparent);
   color-scheme: dark;
 }
 
 [data-theme="light"] {
-  --ink-900: #edf3f8;
-  --ink-800: #f7fafc;
-  --ink-700: #e3ebf2;
-  --ink-600: #d3dee8;
-  --line: #9fb0c2;
-  --line-soft: #c8d4df;
-  --parchment: #122033;
-  --parchment-dim: #52667c;
-  --slate: #5c7085;
-  --slate-bright: #2c4056;
-  --frost: #3779ac;
-  --frost-bright: #175e94;
+  --ink-900: #f7eeee;
+  --ink-800: #fdf7f7;
+  --ink-700: #f0e2e2;
+  --ink-600: #e3cccc;
+  --line: #cf9d9d;
+  --line-soft: #e6cccc;
+  --parchment: #1a0e0e;
+  --parchment-dim: #6b4c4c;
+  --slate: #7a5c5c;
+  --slate-bright: #331a1a;
+  --frost: #c81812;
+  --frost-bright: #a10f0b;
+  --gold: #b3790f;
+  --gold-bright: #8f6209;
   --surface-glass: color-mix(in oklab, var(--ink-800) 84%, transparent);
   --surface-glass-strong: color-mix(in oklab, var(--ink-700) 90%, transparent);
   color-scheme: light;
@@ -95,11 +101,24 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--ink-900);
+  background-color: var(--ink-900);
+  /* Rooftop-night glows plus a faint spider-web line pattern */
   background-image:
-    radial-gradient(ellipse 900px 500px at 12% -10%, rgba(111, 168, 217, 0.12), transparent 55%),
-    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(167, 155, 217, 0.06), transparent 50%),
-    radial-gradient(ellipse 800px 600px at 50% 120%, rgba(79, 169, 163, 0.06), transparent 55%);
+    radial-gradient(ellipse 900px 500px at 12% -10%, rgba(220, 31, 31, 0.14), transparent 55%),
+    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(220, 31, 31, 0.08), transparent 50%),
+    radial-gradient(ellipse 800px 600px at 50% 120%, rgba(240, 172, 31, 0.04), transparent 55%),
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(255, 255, 255, 0.03) 0deg 1deg,
+      transparent 1deg 30deg
+    ),
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.022) 0px,
+      rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px,
+      transparent 64px
+    );
   background-attachment: fixed;
   color: var(--slate-bright);
   font-family: var(--font-body);
@@ -112,10 +131,15 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
   color: var(--parchment);
   margin: 0;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
   font-optical-sizing: auto;
   text-wrap: balance;
+}
+
+/* The comic display font reads better a touch larger + with a subtle ink outline */
+h1, h2 {
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 0 22px rgba(220, 31, 31, 0.3);
 }
 
 p { margin: 0; line-height: 1.65; }
@@ -155,8 +179,8 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 }
 
 ::selection {
-  background: var(--frost);
-  color: var(--ink-900);
+  background: var(--gold);
+  color: var(--parchment);
 }
 
 .container {

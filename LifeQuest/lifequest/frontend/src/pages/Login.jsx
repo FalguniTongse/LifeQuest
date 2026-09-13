@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { playPowerUp, playError } from '../utils/sounds';
+import { speakGreeting } from '../utils/voice';
 
 export default function Login() {
   const { login } = useAuth();
@@ -17,8 +19,11 @@ export default function Login() {
     const result = await login(email, password);
     setBusy(false);
     if (result.success) {
+      playPowerUp();
+      speakGreeting();
       navigate('/dashboard');
     } else {
+      playError();
       setError(result.error);
     }
   }

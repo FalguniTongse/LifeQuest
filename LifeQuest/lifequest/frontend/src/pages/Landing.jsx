@@ -12,6 +12,7 @@ export default function Landing() {
       </nav>
 
       <section className="hero">
+        <div className="hero-particles" aria-hidden="true" />
         <div>
           <div className="hero-eyebrow-free">Every real task, written as a quest</div>
           <h1>Level up your real life</h1>

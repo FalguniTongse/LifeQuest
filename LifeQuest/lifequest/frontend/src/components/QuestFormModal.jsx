@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { playModalOpen, playModalClose, playError } from '../utils/sounds';
 
 const CATEGORIES = ['Coding', 'Study', 'Reading', 'Fitness', 'Meditation', 'Art', 'Social'];
 const DIFFICULTIES = ['Easy', 'Medium', 'Hard', 'Epic'];
@@ -17,11 +18,21 @@ export default function QuestFormModal({ initialQuest, onSubmit, onClose }) {
 
   const isEdit = Boolean(initialQuest);
 
+  useEffect(() => {
+    playModalOpen();
+  }, []);
+
+  function handleClose() {
+    playModalClose();
+    onClose();
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
     if (!title.trim()) {
       setError('Give your quest a title.');
+      playError();
       return;
     }
     setSaving(true);
@@ -36,15 +47,16 @@ export default function QuestFormModal({ initialQuest, onSubmit, onClose }) {
     setSaving(false);
     if (result && result.error) {
       setError(result.error);
+      playError();
     }
   }
 
   return (
-    <div className="modal-backdrop" onClick={onClose} role="presentation">
+    <div className="modal-backdrop" onClick={handleClose} role="presentation">
       <div className="modal-panel" onClick={(e) => e.stopPropagation()} role="dialog" aria-label={isEdit ? 'Edit quest' : 'New quest'}>
         <div className="modal-head">
           <h3>{isEdit ? 'Edit quest' : 'New quest'}</h3>
-          <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
+          <button className="modal-close" onClick={handleClose} aria-label="Close">✕</button>
         </div>
         <div className="modal-body">
           {error && <div className="form-error-banner">{error}</div>}

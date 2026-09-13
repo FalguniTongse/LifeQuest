@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { playPowerUp, playError } from '../utils/sounds';
+import { speakGreeting } from '../utils/voice';
 
 export default function Register() {
   const { register } = useAuth();
@@ -19,8 +21,11 @@ export default function Register() {
     const result = await register(username, email, password, confirmPassword);
     setBusy(false);
     if (result.success) {
+      playPowerUp();
+      speakGreeting();
       navigate('/dashboard');
     } else {
+      playError();
       setError(result.error);
     }
   }
