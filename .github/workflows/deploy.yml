@@ -35,7 +35,7 @@ jobs:
         working-directory: ./LifeQuest/lifequest/frontend
 
       - name: Build project
-        run: npm run build
+        run: npm run build -- --base=/LifeQuest/
         working-directory: ./LifeQuest/lifequest/frontend
         env:
           VITE_API_URL: https://lifequest-backend-olmf.onrender.com/api
