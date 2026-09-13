@@ -38,7 +38,7 @@ jobs:
         run: npm run build -- --base=/LifeQuest/
         working-directory: ./LifeQuest/lifequest/frontend
         env:
-          VITE_API_URL: https://lifequest-backend-olmf.onrender.com/api
+            VITE_API_URL: https://lifequest-backend-olmf.onrender.com/api
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
